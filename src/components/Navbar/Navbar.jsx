@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import InputSearch from "../Search/imputSearch.jsx";
 import HomeButton from "../HomeButton/HomeButton.jsx";
 import { useNavigate } from "react-router-dom";
 import categoriesClassification from "../../../categoriesClassification.json";
 import Categories from "../Categories/Categories.jsx";
+import { authGlobalState } from "../../context/authcontext/AuthContext";
 
 export const Navbar = () => {
   const [userIsLogged, setUserIsLogged] = useState(false);
 
   const navigate = useNavigate()
-  const logOut = () => {
-    localStorage.removeItem("token");
-    setUserIsLogged(false);
-  };
-
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      setUserIsLogged(true);
-    }
-  }, []);
 
   return (
     <section className='navbar-section'>
@@ -32,7 +23,7 @@ export const Navbar = () => {
             <InputSearch />
           </div>
           <div className='col-sm-2 d-flex justify-content-end align-items-center'>
-            {!userIsLogged ? (
+            {!isLoggedIn ? (
               <div className="login-register">
                 <button
                   className="login-button"
@@ -48,8 +39,8 @@ export const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <div className="login-register">
-                <button className="login-register-button" onClick={logOut}>
+              <div className="login-register">    
+                <button className="login-register-button" onClick={()=>logout()}>
                   Log out
                 </button>
               </div>
