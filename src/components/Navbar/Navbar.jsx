@@ -7,6 +7,7 @@ import categoriesClassification from "../../../categoriesClassification.json";
 import Categories from "../Categories/Categories.jsx";
 import { authGlobalState } from "../../context/authcontext/AuthContext";
 
+
 export const Navbar = () => {
   const { isLoggedIn, logout } = authGlobalState();
   const navigate = useNavigate();
