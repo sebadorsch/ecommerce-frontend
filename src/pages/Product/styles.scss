@@ -24,21 +24,11 @@ $font-size--large-text--desktop: 2rem;
   }
   
 }
-.cart-modal{
-  position: absolute;
-  height: 150vh;
-  background-color: #0c0202d7;
-  top: 0;
-  right: 0;
-  width: 400px;
-  z-index: 2;
-  .cart-modal-header{
-    display: flex;
-    justify-content: center;
-    background-color: #e1e2e7;
-    
-  }
+.product-image-detail{
+  height: auto;
+  width: 100%;
 }
+
 .imagecontainer {
   display: flex;
   justify-content: space-between;

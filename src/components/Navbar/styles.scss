@@ -2,50 +2,279 @@
 
 .navbar-section {
   background-color: white;
-.cart-button{
-  cursor: pointer;
-  width: 30px;
-  height: 40px;
-  background-color: transparent;
-  .cart-icon {
-        border: none;
-        cursor: pointer;
-       
-      }
-}
+  .profile-button {
+    display: none;
+  }
+  .login-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cart-button {
+    cursor: pointer;
+    width: 30px;
+    height: 40px;
+    background-color: transparent;
+    .cart-icon {
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .menu-container {
+    display: none;
+  }
   .navbar-top {
     padding-top: 2rem;
 
-    .login-register {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-
-      .login-button,
-      .register-button {
+    .register-button {
+      cursor: pointer;
+      padding: 6px 16px;
+      border: none;
+      border-radius: 7px;
+      min-width: 100px;
+      .cart-button {
         cursor: pointer;
-        padding: 6px 16px;
-        border: none;
-        min-width: 100px;
+        width: 30px;
+        height: 40px;
+        background-color: transparent;
+        .cart-icon {
+          border: none;
+          cursor: pointer;
+        }
       }
-
-      .register-button {
-        background-color: $primaryColor;
-      }
-
-      .login-button:hover {
-        background-color: $primaryColor;
-        transform: scale(1.1);
-      }
-      .register-button:hover {
-        background-color: $primaryColor;
-        transform: scale(1.1);
-      }
-      
-      
+    }
+    .login-button {
+      border-radius: 7px;
+      cursor: pointer;
+      padding: 6px 16px;
+      border: none;
+      border-radius: 7px;
+      min-width: 100px;
+    }
+    .register-button {
+      background-color: $primaryColor;
+    }
+    .login-button:hover {
+      background-color: $primaryColor;
+      transform: scale(1.1);
+    }
+    .register-button:hover {
+      background-color: $primaryColor;
+      transform: scale(1.1);
     }
   }
 }
-@media only screen and (max-width: 600px){
-  
+@media only screen and (max-width: 867px) {
+  .navbar-section {
+    background-color: white;
+    .profile-button {
+      display: none;
+    }
+    .menu-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      .menu-image {
+        height: 30px;
+        width: 30px;
+      }
+    }
+    .cart-button {
+      cursor: pointer;
+      width: 30px;
+      height: 40px;
+      background-color: transparent;
+      .cart-icon {
+        border: none;
+        cursor: pointer;
+      }
+    }
+    .navbar-top {
+      padding-top: 1rem;
+      .login-register {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .register-button {
+          cursor: pointer;
+          padding: 4px 10px;
+          border: none;
+          border-radius: 7px;
+
+          min-width: 80px;
+          .cart-button {
+            cursor: pointer;
+            width: 25px;
+            height: 35px;
+            background-color: transparent;
+            .cart-icon {
+              border: none;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .register-button {
+          background-color: $primaryColor;
+        }
+
+        .login-button:hover {
+          background-color: $primaryColor;
+          transform: scale(1.1);
+        }
+        .register-button:hover {
+          background-color: $primaryColor;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    .menu-image {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .profile-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    .profile-image {
+      height: 30px;
+      height: 30px;
+    }
+  }
+  .navbar-section {
+    background-color: #ffffff;
+    
+    .login-button {
+      display: none;
+    }
+    .cart-button {
+      cursor: pointer;
+      width: 30px;
+      height: 40px;
+      background-color: transparent;
+      .cart-icon {
+        border: none;
+        cursor: pointer;
+      }
+    }
+    .navbar-top {
+      padding-top: 1rem;
+
+      .login-register {
+        display: flex;
+        .logout-text {
+          font-size: 15px;
+        }
+        .cart-text {
+          font-size: 15px;
+        }
+        .register-button {
+          cursor: pointer;
+          display: none;
+          padding: 3px 9px;
+          border-radius: 7px;
+          border: none;
+          min-width: 80px;
+
+          .cart-button {
+            cursor: pointer;
+            width: 25px;
+            height: 35px;
+            background-color: transparent;
+            .cart-icon {
+              border: none;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .register-button {
+          background-color: $primaryColor;
+        }
+
+        .login-button:hover {
+          background-color: $primaryColor;
+          transform: scale(1.1);
+        }
+        .register-button:hover {
+          background-color: $primaryColor;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    .menu-image {
+      height: 30px;
+      width: 30px;
+    }
+  }
+  .navbar-section {
+    background-color: white;
+    display: flex;
+    .cart-button {
+      cursor: pointer;
+      width: 30px;
+      height: 40px;
+      background-color: transparent;
+      .cart-icon {
+        border: none;
+        cursor: pointer;
+      }
+    }
+    .navbar-top {
+      padding-top: 2rem;
+
+      .login-register {
+        display: none;
+
+        .register-button {
+          display: none;
+          .cart-button {
+            cursor: pointer;
+            width: 30px;
+            height: 40px;
+            background-color: transparent;
+            .cart-icon {
+              border: none;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .register-button {
+          background-color: $primaryColor;
+        }
+
+        .login-button:hover {
+          background-color: $primaryColor;
+          transform: scale(1.1);
+        }
+        .register-button:hover {
+          background-color: $primaryColor;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
 }

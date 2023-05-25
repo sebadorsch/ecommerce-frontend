@@ -70,10 +70,10 @@ export function ProductDetail() {
           </div>
         ) : (
           <Row className="productContainer">
-            <Col sm={8} className="productImage">
-              <img src={product?.images[0]} alt="" className=" mt-5"></img>
+            <Col lg={8} className="productImage">
+              <img src={product?.images[0]} alt="" className=" mt-5 product-image-detail"></img>
             </Col>
-            <Col sm={4}>
+            <Col lg={4}>
               <div className="productBrand mt-5 mb-3">{product?.brand}</div>
               <div className="productName ">{product?.title}</div>
               <div className="subtitle mt-3">

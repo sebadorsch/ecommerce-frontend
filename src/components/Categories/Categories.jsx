@@ -8,7 +8,7 @@ function Categories({ category, border }) {
     <div className="categories-container">
       <div>
         <div
-          className="sub-categories"
+          className="categories"
           onMouseEnter={() => {
             setShowSubCategories(true)
           }}

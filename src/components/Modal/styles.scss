@@ -6,12 +6,28 @@
     justify-content: start;
     
 }
+.modal-content{
+}
 #carrito-modal{
+  
     .footer-container{
         justify-content: start;
     }
     .modal-buy-botton{
         background: $primaryColor;
         justify-content: center;
+    }
+}
+.modal{
+    &-dialog{
+        position: absolute;
+        right: 0;
+        height: 100%;
+        margin: 0;
+        min-width: 300px;
+
+        .modal-content{
+            height: 100vh;
+        }
     }
 }

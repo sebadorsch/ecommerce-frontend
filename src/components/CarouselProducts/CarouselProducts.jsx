@@ -16,7 +16,7 @@ export const CarouselProducts = ({ categories, data }) => {
         </div>
 
         <div className="carousel-pre-container">
-          <Carousel show={4} infiniteloop={true}>
+          <Carousel show={4} infiniteloop={true} autoPlay={true} >
             {data.map((product) => {
               return <ProductCard key={product.id} product={product} />
             })}
