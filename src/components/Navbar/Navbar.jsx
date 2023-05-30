@@ -9,10 +9,12 @@ import { authGlobalState } from "../../context/authcontext/AuthContext"
 import cart from "../../../public/assets/cart.svg"
 import listIcon from "../../../public/assets/images/list.svg"
 import profileIcon from "../../../public/assets/images/person-circle.svg"
+import { Dropdown } from "react-bootstrap"
 
 export const Navbar = () => {
   const { isLoggedIn, logout } = authGlobalState()
-  const { showCart, setShowCart } = authGlobalState(false)
+  const { showCart, setShowCart, menuModal, setMenuModal } =
+    authGlobalState(false)
 
   const navigate = useNavigate()
 
@@ -20,25 +22,35 @@ export const Navbar = () => {
     <section className="navbar-section">
       <div className="container-fluid">
         <div className="navbar-top row justify-content-between navbar-responsive">
-          <div className="col d-flex justify-content-start align-items-center">
+          <div className=" d-flex justify-content-start align-items-center">
             <HomeButton />
           </div>
-          <div className="menu-container ">
+          <button
+            className="menu-container"
+            onClick={() => setMenuModal(!menuModal)}
+          >
             <img src={listIcon} alt="list" className="menu-image" />
-          </div>
-          <div className="col d-flex justify-content-center align-items-center">
+          </button>
+          <div className=" d-flex justify-content-center align-items-center">
             <InputSearch />
           </div>
-          <div className="col d-flex justify-content-end align-items-center">
+          <div className=" d-flex justify-content-end align-items-center">
             {!isLoggedIn ? (
               <div className="login-register">
-                <button className="profile-button ">
-                  <img
-                    src={profileIcon}
-                    alt="profile"
-                    className="profile-image"
-                  />
-                </button>
+                <Dropdown className="profile-button ">
+                  <Dropdown.Toggle id="dropdown-basic">
+                    <img
+                      src={profileIcon}
+                      alt="profile"
+                      className="profile-image"
+                    />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/login">Login</Dropdown.Item>
+                    <Dropdown.Item href="/register">Register</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+
                 <button
                   className="login-button"
                   onClick={() => navigate("/login")}
@@ -63,13 +75,19 @@ export const Navbar = () => {
                 >
                   <span className="cart-text">Cart</span>
                 </button>
-                <button className="profile-button">
-                  <img
-                    src={profileIcon}
-                    alt="profile"
-                    className="profile-image"
-                  />
-                </button>
+                <Dropdown className="profile-button">
+                  <Dropdown.Toggle id="dropdown-basic">
+                    <img
+                      src={profileIcon}
+                      alt="profile"
+                      className="profile-image"
+                    />
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/login">Login</Dropdown.Item>
+                    <Dropdown.Item href="/register">Register</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
             )}
           </div>

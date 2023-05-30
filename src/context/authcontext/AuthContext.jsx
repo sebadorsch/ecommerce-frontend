@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useContext } from "react"
 import { createContext } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom"
 
 export const authContext = createContext()
 export const authGlobalState = () => {
@@ -17,17 +17,18 @@ export const AuthProvider = ({ children }) => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [showCart, setShowCart] = useState(false)
+  const [menuModal, setMenuModal] = useState(false)
 
   const login = async (email, password) => {
-    const params = new URLSearchParams();
-    params.append('username', email);
-    params.append('password', password);
+    const params = new URLSearchParams()
+    params.append("username", email)
+    params.append("password", password)
 
     const res = await axios.post(`${VITE_APP_BACKEND_API}/token`, params)
     if (res.status === 200) {
       localStorage.setItem("token", res.data.access_token)
       setIsLoggedIn(true)
-      navigate('/')
+      navigate("/")
     } else {
       setIsLoggedIn(false)
     }
@@ -35,15 +36,15 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (email, password) => {
     const body = {
-      "email": email,
-      "hashed_password": password
+      email: email,
+      hashed_password: password,
     }
     const res = await axios.post(`${VITE_APP_BACKEND_API}/user`, body)
     console.log(res)
-    if (res.status === 200){
-      localStorage.setItem('token', res.data.access_token)
+    if (res.status === 200) {
+      localStorage.setItem("token", res.data.access_token)
       setIsLoggedIn(true)
-      navigate('/')
+      navigate("/")
     }
   }
 
@@ -66,7 +67,9 @@ export const AuthProvider = ({ children }) => {
         isLoggedIn,
         logout,
         showCart,
-        setShowCart
+        setShowCart,
+        menuModal,
+        setMenuModal,
       }}
     >
       {children}

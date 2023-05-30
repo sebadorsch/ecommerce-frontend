@@ -6,7 +6,7 @@ export const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
       <a style={{ color: "#fff" }} className="" href={`/product/${product.id}`}>
-        <div className="img">
+        <div className="img-container">
           <img  className="img" src={product.thumbnail} alt={product.title} />
           <p className="title-product">{product.title}</p>
           <p className="price-product align-self-end">US${product.price}</p>

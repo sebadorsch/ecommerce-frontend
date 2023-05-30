@@ -1,14 +1,20 @@
 @import "../../styles/variables";
-
+#dropdown-basic{
+  background-color: white;
+  border-color: white;
+}
+.profile-button {
+  display: none;
+  background-color: white;
+}
 .navbar-section {
   background-color: white;
-  .profile-button {
-    display: none;
-  }
+
   .login-register {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 30px;
   }
 
   .cart-button {
@@ -16,6 +22,7 @@
     width: 30px;
     height: 40px;
     background-color: transparent;
+    border: none;
     .cart-icon {
       border: none;
       cursor: pointer;
@@ -66,16 +73,18 @@
   }
 }
 @media only screen and (max-width: 867px) {
+  .profile-button {
+    display: none;
+  }
   .navbar-section {
     background-color: white;
-    .profile-button {
-      display: none;
-    }
     .menu-container {
       display: flex;
       justify-content: center;
       align-items: center;
       width: 30px;
+      border: none;
+      background-color: transparent ;
       .menu-image {
         height: 30px;
         width: 30px;
@@ -139,24 +148,25 @@
     justify-content: center;
     align-items: center;
     width: 30px;
+    border: none;
+    background-color: transparent ;
     .menu-image {
       height: 30px;
       width: 30px;
     }
   }
-  .profile-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .profile-button {
+    display: block;
+    background-color: transparent;
     border: none;
     .profile-image {
       height: 30px;
-      height: 30px;
+      width: 30px;
     }
   }
   .navbar-section {
     background-color: #ffffff;
-    
+
     .login-button {
       display: none;
     }
@@ -218,20 +228,34 @@
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 400px)  {
   .menu-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 30px;
+    border: none;
+    background-color: transparent ;
     .menu-image {
       height: 30px;
       width: 30px;
     }
   }
+  .profile-button {
+    display: block;
+    background-color: transparent;
+    border: none;
+    .profile-image {
+      height: 30px;
+      width: 30px;
+    }
+  }
   .navbar-section {
-    background-color: white;
-    display: flex;
+    background-color: #ffffff;
+
+    .login-button {
+      display: none;
+    }
     .cart-button {
       cursor: pointer;
       width: 30px;
@@ -243,17 +267,28 @@
       }
     }
     .navbar-top {
-      padding-top: 2rem;
+      padding-top: 1rem;
 
       .login-register {
-        display: none;
-
+        display: flex;
+        .logout-text {
+          font-size: 15px;
+        }
+        .cart-text {
+          font-size: 15px;
+        }
         .register-button {
+          cursor: pointer;
           display: none;
+          padding: 3px 9px;
+          border-radius: 7px;
+          border: none;
+          min-width: 80px;
+
           .cart-button {
             cursor: pointer;
-            width: 30px;
-            height: 40px;
+            width: 25px;
+            height: 35px;
             background-color: transparent;
             .cart-icon {
               border: none;
