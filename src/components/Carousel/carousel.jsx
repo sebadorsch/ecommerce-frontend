@@ -1,101 +1,101 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React from "react"
+import { useState, useEffect } from "react"
 
-import "./styles.scss";
+import "./styles.scss"
 
 const Carousel = (props) => {
-  const { children, show, infiniteLoop } = props;
+  const { children, show, infiniteLoop } = props
 
-  const [currentIndex, setCurrentIndex] = useState(infiniteLoop ? show : 0);
-  const [length, setLength] = useState(children.length);
+  const [currentIndex, setCurrentIndex] = useState(infiniteLoop ? show : 0)
+  const [length, setLength] = useState(children.length)
 
   const [isRepeating, setIsRepeating] = useState(
     infiniteLoop && children.length > show
-  );
-  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  )
+  const [transitionEnabled, setTransitionEnabled] = useState(true)
 
-  const [touchPosition, setTouchPosition] = useState(null);
+  const [touchPosition, setTouchPosition] = useState(null)
 
   // Set the length to match current children from props
   useEffect(() => {
-    setLength(children.length);
-    setIsRepeating(infiniteLoop && children.length > show);
-  }, [children, infiniteLoop, show]);
+    setLength(children.length)
+    setIsRepeating(infiniteLoop && children.length > show)
+  }, [children, infiniteLoop, show])
 
   useEffect(() => {
     if (isRepeating) {
       if (currentIndex === show || currentIndex === length) {
-        setTransitionEnabled(true);
+        setTransitionEnabled(true)
       }
     }
-  }, [currentIndex, isRepeating, show, length]);
+  }, [currentIndex, isRepeating, show, length])
 
   const next = () => {
     if (isRepeating || currentIndex < length - show) {
-      setCurrentIndex((prevState) => prevState + 1);
+      setCurrentIndex((prevState) => prevState + 1)
     }
-  };
+  }
 
   const prev = () => {
     if (isRepeating || currentIndex > 0) {
-      setCurrentIndex((prevState) => prevState - 1);
+      setCurrentIndex((prevState) => prevState - 1)
     }
-  };
+  }
 
   const handleTouchStart = (e) => {
-    const touchDown = e.touches[0].clientX;
-    setTouchPosition(touchDown);
-  };
+    const touchDown = e.touches[0].clientX
+    setTouchPosition(touchDown)
+  }
 
   const handleTouchMove = (e) => {
-    const touchDown = touchPosition;
+    const touchDown = touchPosition
 
     if (touchDown === null) {
-      return;
+      return
     }
 
-    const currentTouch = e.touches[0].clientX;
-    const diff = touchDown - currentTouch;
+    const currentTouch = e.touches[0].clientX
+    const diff = touchDown - currentTouch
 
     if (diff > 5) {
-      next();
+      next()
     }
 
     if (diff < -5) {
-      prev();
+      prev()
     }
 
-    setTouchPosition(null);
-  };
+    setTouchPosition(null)
+  }
 
   const handleTransitionEnd = () => {
     if (isRepeating) {
       if (currentIndex === 0) {
-        setTransitionEnabled(false);
-        setCurrentIndex(length);
+        setTransitionEnabled(false)
+        setCurrentIndex(length)
       } else if (currentIndex === length + show) {
-        setTransitionEnabled(false);
-        setCurrentIndex(show);
+        setTransitionEnabled(false)
+        setCurrentIndex(show)
       }
     }
-  };
+  }
 
   const renderExtraPrev = () => {
-    let output = [];
+    let output = []
     for (let index = 0; index < show; index++) {
-      output.push(children[length - 1 - index]);
+      output.push(children[length - 1 - index])
     }
-    output.reverse();
-    return output;
-  };
+    output.reverse()
+    return output
+  }
 
   const renderExtraNext = () => {
-    let output = [];
+    let output = []
     for (let index = 0; index < show; index++) {
-      output.push(children[index]);
+      output.push(children[index])
     }
-    return output;
-  };
+    return output
+  }
 
   return (
     <div className="carousel-container">
@@ -130,7 +130,7 @@ const Carousel = (props) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Carousel;
+export default Carousel

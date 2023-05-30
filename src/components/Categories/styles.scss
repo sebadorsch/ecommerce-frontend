@@ -1,47 +1,47 @@
 @import "../../styles/variables.scss";
 
-.categories-container{
+.categories-container {
   display: flex;
 
-  .sub-categories{
+  .categories {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 70px;
 
-    h3{
+    h3 {
       text-transform: capitalize;
       padding: 0 1rem;
       margin: 0;
       min-width: 200px;
       text-align: center;
 
-      &.custom-border{
+      &.custom-border {
         border-right: 2px solid $primaryColor;
       }
     }
   }
 
-  .bottomBorder{
+  .bottomBorder {
     height: 2px;
     width: 100%;
 
-    &.active{
+    &.active {
       background-color: $primaryColor;
     }
-    &.inactive{
+    &.inactive {
       background-color: black;
     }
   }
 
-  .sub-categories-modal{
+  .sub-categories-modal {
     -webkit-box-shadow: 0px -5px 3px 0px rgba(189, 187, 189, 0.18);
     -moz-box-shadow: 0px -5px 3px 0px rgba(189, 187, 189, 0.18);
     box-shadow: 0px -5px 3px 0px rgba(189, 187, 189, 0.18);
     position: absolute;
     left: 0;
     width: 100%;
-    top: 12.7rem;
+    top: 12.8rem;
     background-color: #fff;
     height: 80px;
     display: flex;
@@ -49,8 +49,7 @@
     align-items: center;
     z-index: 1;
 
-
-    .sub-categories{
+    .sub-categories {
       text-transform: capitalize;
       margin: 0;
       padding-right: 2rem;
@@ -59,13 +58,141 @@
       text-decoration: none;
       color: $primaryColor;
       font-weight: 700;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       line-height: 30px;
-      .sub-categories-title{
+      .sub-categories-title {
         cursor: pointer;
       }
-      
     }
-    .sub-categories:hover{
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .categories-container {
+    display: flex;
+    .categories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+
+      h3 {
+        text-transform: capitalize;
+        padding: 0 1rem;
+        margin: 0;
+        min-width: 170px;
+        text-align: center;
+        font-size: 30px;
+        &.custom-border {
+          border-right: 2px solid $primaryColor;
+        }
+      }
+    }
+
+    .bottomBorder {
+      height: 2px;
+      width: 100%;
+
+      &.active {
+        background-color: $primaryColor;
+      }
+      &.inactive {
+        background-color: black;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 867px) {
+  .categories-container {
+    display: none;
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+
+      h3 {
+        text-transform: capitalize;
+        padding: 0 1rem;
+        margin: 0;
+        min-width: 100px;
+        text-align: center;
+
+        &.custom-border {
+          border-right: 2px solid $primaryColor;
+        }
+      }
+    }
+
+    .bottomBorder {
+      height: 2px;
+      width: 100%;
+
+      &.active {
+        background-color: $primaryColor;
+      }
+      &.inactive {
+        background-color: black;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .categories-container {
+    display: none;
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+
+      h3 {
+        text-transform: capitalize;
+        padding: 0 1rem;
+        margin: 0;
+        min-width: 100px;
+        text-align: center;
+
+        &.custom-border {
+          border-right: 2px solid $primaryColor;
+        }
+      }
+    }
+
+    .bottomBorder {
+      height: 2px;
+      width: 100%;
+
+      &.active {
+        background-color: $primaryColor;
+      }
+      &.inactive {
+        background-color: black;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+
+    h3 {
+      text-transform: capitalize;
+      padding: 0 1rem;
+      font-size: 15px;
+      margin: 0;
+      min-width: 100%;
+      text-align: center;
+      &.custom-border {
+        border-right: 2px solid $primaryColor;
+      }
     }
   }
 }
